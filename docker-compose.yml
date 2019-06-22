@@ -1,0 +1,22 @@
+version: '2'
+services:
+  app-a:
+    image: pawelj/docker-test:1.0-SNAPSHOT
+    volumes:
+      - ./java/:/usr/src/app
+    env_file:
+      - ./config/app-common.env
+    environment:
+      - PORT=4566
+    ports:
+          - "9001:4566"
+  app-b:
+    image: pawelj/docker-test:1.0-SNAPSHOT
+    volumes:
+      - ./java/:/usr/src/app
+    env_file:
+      - ./config/app-common.env
+    environment:
+      - PORT=4567
+    ports:
+          - "9002:4567"
